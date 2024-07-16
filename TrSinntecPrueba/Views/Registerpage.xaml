@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             x:Class="TrSinntecPrueba.Views.Registerpage"
+             NavigationPage.HasNavigationBar="False" BackgroundImageSource="bckWelcome.jpg">
+    <Grid RowDefinitions="50,*">
+        <StackLayout Grid.Row="0" VerticalOptions="End" HorizontalOptions="End" Padding="0" Margin="0,1,0,0" BackgroundColor="Transparent">
+            <Image Source="illustrationr.png" WidthRequest="100" HeightRequest="100" Margin="0,0,0,0"/>
+        </StackLayout>
+
+        <sharpnado:MaterialFrame Grid.Row="1" MaterialBlurStyle="Dark"  MaterialTheme="AcrylicBlur" CornerRadius="15" Margin="5,5">
+            <Grid RowDefinitions="*,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="0">
+                <StackLayout Grid.Row="0" Orientation="Vertical" Margin="0,20">
+                    <Label   Text="Perfecto!" TextColor="White" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold"/>
+                    <Label  Text="Registrate para ser parte de la familia" TextColor="White" HorizontalTextAlignment="Center" FontSize="15" FontAttributes="Italic"/>
+                </StackLayout>
+                <BoxView Grid.Row="1" Color="White" HeightRequest="1" Margin="10,10" />
+                <StackLayout Grid.Row="2" Orientation="Horizontal">
+                    <Image Source="usuario.png" WidthRequest="30" HeightRequest="30"/>
+                    <Entry  x:Name="NameEntry" Placeholder="Nombre" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Orientation="Horizontal">
+                    <Image Source="mensajes.png" WidthRequest="30" HeightRequest="30"/>
+                    <Entry x:Name="EmailEntry" Placeholder="Correo Electronico"  HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="4" Orientation="Horizontal">
+                    <Image Source="llave.png" WidthRequest="30" HeightRequest="30"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="5" Orientation="Horizontal">
+                    <Image Source="llave.png" WidthRequest="30" HeightRequest="30"/>
+                    <Entry x:Name="PasswordConfirmationEntry" Placeholder="Confirmar Contraseña" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Button Grid.Row="6" Text="Registrar" BackgroundColor="#1CDC16" TextColor="Wheat" CornerRadius="15" Margin="20,0,20,0" Clicked="OnRegisterButtonClicked"  Command="{Binding loadingcommand}"/>
+                <BoxView Grid.Row="7" Color="White" HeightRequest="1" Margin="50,20" />
+
+                <StackLayout Grid.Row="8" Orientation="Horizontal" HorizontalOptions="Center">
+                    <ImageButton BackgroundColor="White" Source="logog.png" WidthRequest="50" HeightRequest="50" CornerRadius="50" Padding="0"/>
+                    <ImageButton BackgroundColor="White" Source="facebook.png" WidthRequest="50" HeightRequest="50" CornerRadius="50" Padding="5"/>
+                    <ImageButton BackgroundColor="White" Source="logoapple.png" WidthRequest="50" HeightRequest="50" CornerRadius="50" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Row="9" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
+                    <Label Text="¿Ya tienes cuenta?" TextColor="White" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Button x:Name="Gologin" Text="Iniciar Sesión" VerticalOptions="Center" BackgroundColor="#16ACDC" FontSize="10" TextColor="White" CornerRadius="10" Clicked="Gologin_Clicked" />
+                </StackLayout>
+            </Grid>
+        </sharpnado:MaterialFrame>
+        <Grid Grid.RowSpan="2" x:Name="LoadingOverlay"
+ BackgroundColor="Black"
+ Opacity="0.5"
+ IsVisible="{Binding IsBusy}">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                  VerticalOptions="CenterAndExpand"
+                  HorizontalOptions="CenterAndExpand" />
+        </Grid>
+    </Grid>
+</ContentPage>

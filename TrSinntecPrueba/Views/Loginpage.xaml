@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             x:Class="TrSinntecPrueba.Views.Loginpage"
+             NavigationPage.HasNavigationBar="False" BackgroundImageSource="bckWelcome.jpg">
+    <Grid RowDefinitions="Auto,*">
+        <StackLayout Grid.Row="0">
+            <Image Source="illustration.png" WidthRequest="90" HeightRequest="90"/>
+        </StackLayout>
+
+
+        <sharpnado:MaterialFrame Grid.Row="1" MaterialBlurStyle="Dark"  MaterialTheme="AcrylicBlur" CornerRadius="15" Margin="10,10">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                <StackLayout Grid.Row="0" Orientation="Vertical" Margin="0,20">
+                    <Label   Text="Hola!" TextColor="White" HorizontalTextAlignment="Center" FontSize="45" FontAttributes="Bold"/>
+                    <Label  Text="Inicia sesión con tu cuenta" TextColor="White" HorizontalTextAlignment="Center" FontSize="15" FontAttributes="Italic"/>
+                </StackLayout>
+                <BoxView Grid.Row="1" Color="White" HeightRequest="1" Margin="20,20" />
+                <StackLayout Grid.Row="2" Orientation="Horizontal">
+                    <Image Source="usuario.png" WidthRequest="30" HeightRequest="30"/>
+                    <Entry x:Name="EmailEntry" Placeholder="Correo Electronico" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Orientation="Horizontal">
+                    <Image Source="llave.png" WidthRequest="30" HeightRequest="30"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Label Grid.Row="4" Text="¿Olvidaste tu contraseña?" HorizontalOptions="End" TextColor="Gray" Margin="0,20"/>
+                <Button x:Name="Gohome" Grid.Row="5" Text="Iniciar Sesión" BackgroundColor="#7B328F" TextColor="Wheat" Clicked="Gohome_Clicked" Command="{Binding loadingcommand}" />
+                <BoxView Grid.Row="6" Color="White" HeightRequest="1" Margin="50,20" />
+
+                <StackLayout Grid.Row="7" Orientation="Horizontal" HorizontalOptions="Center">
+                    <ImageButton BackgroundColor="White" Source="logog.png" WidthRequest="50" HeightRequest="50" CornerRadius="50" Padding="0"/>
+                    <ImageButton BackgroundColor="White" Source="facebook.png" WidthRequest="50" HeightRequest="50" CornerRadius="50" Padding="5"/>
+                    <ImageButton BackgroundColor="White" Source="logoapple.png" WidthRequest="50" HeightRequest="50" CornerRadius="50" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Row="8" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
+                    <Label Text="¿No tienes una cuenta?" TextColor="White" VerticalOptions="Center"/>
+                    <Button x:Name="Goregister" Text="Registrate" BackgroundColor="#1CDC16" TextColor="White" CornerRadius="15" Clicked="Goregister_Clicked"  />
+                </StackLayout>
+            </Grid>
+        </sharpnado:MaterialFrame>
+        <!-- Overlay de carga -->
+        <Grid Grid.RowSpan="2" x:Name="LoadingOverlay"
+       BackgroundColor="Black"
+       Opacity="0.5"
+       IsVisible="{Binding IsBusy}">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrSinntecPrueba.Views.Nav"
+             Title="Nav" BackgroundColor="#3374DD">
+    <Grid   RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*,*,*">
+        <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Margin="0,20,0,0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Start">
+            <Image  Source="splash.png" WidthRequest="80" />
+            <Frame BackgroundColor="Transparent" BorderColor="Transparent"/>
+            <Label Text="Menú"   FontSize="30" FontAttributes="Bold" TextColor="White" VerticalOptions="Center"  />
+        </StackLayout>
+        <BoxView Grid.Row="1" Grid.ColumnSpan="4" HeightRequest="4" Color="White" VerticalOptions="Center" Margin="10,5"  />
+        
+        <StackLayout Grid.Row="2" Grid.ColumnSpan="3"  BackgroundColor="Transparent" Orientation="Horizontal" VerticalOptions="Center" Margin="20,0,0,0" >
+            <Button x:Name="Remotelogs" Margin="0, 0" Text="Registros remotos" FontSize="18" BackgroundColor="Transparent"   BorderWidth="1" TextColor="White" FontAttributes="Bold"  CornerRadius="10" Clicked="Remotelogs_Clicked" />
+            <Image Margin="-20,2,0,0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" Source="arrowW.png" />
+        </StackLayout>
+        
+        <StackLayout Grid.Row="3" Grid.ColumnSpan="3"  BackgroundColor="Transparent" Orientation="Horizontal" VerticalOptions="Center" Margin="20,0,0,0">
+            <Button x:Name="Localrecords" Margin="0, 0" Text="Registros locales" FontSize="18" BackgroundColor="Transparent"   BorderWidth="1" TextColor="White" FontAttributes="Bold"  CornerRadius="10" Clicked="Localrecords_Clicked" />
+            <Image Margin="-20,2,0,0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" Source="arrowW.png"/>
+        </StackLayout>
+        
+        <StackLayout Grid.Row="4" Grid.ColumnSpan="3"  BackgroundColor="Transparent" Orientation="Horizontal" Margin="0,0,0,0"  >
+            <Button x:Name="Api" Margin="0, 0" Text="Api" FontSize="18" BackgroundColor="Transparent"   BorderWidth="1" TextColor="White" FontAttributes="Bold"  CornerRadius="10" Clicked="Api_Clicked" />
+            <Image Margin="-20,2,0,0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" Source="arrowW.png" HorizontalOptions="StartAndExpand" />
+        </StackLayout>
+        
+
+        <StackLayout Grid.Row="5" Grid.ColumnSpan="3"  BackgroundColor="Transparent" Orientation="Horizontal" Margin="20,0,0,0" >
+            <Button x:Name="Sinntec" Margin="0, 0" Text="Contactanos" FontSize="18" BackgroundColor="Transparent"   BorderWidth="1" TextColor="White" FontAttributes="Bold"  CornerRadius="10" Clicked="Sinntec_Clicked" />
+            <Image Margin="-20,2,0,0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" Source="arrowW.png" />
+        </StackLayout>
+
+
+
+
+
+
+
+    </Grid>
+</ContentPage>

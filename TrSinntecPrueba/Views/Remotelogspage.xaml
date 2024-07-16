@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             x:Class="TrSinntecPrueba.Views.Remotelogspage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="bck6.jpg">
+    <Grid RowDefinitions="Auto,*" >
+        <sharpnado:MaterialFrame Grid.Row="1" MaterialBlurStyle="Dark"  MaterialTheme="AcrylicBlur" CornerRadius="15" Margin="10,10">
+            <StackLayout Grid.Row="0" Padding="10">
+                <Grid ColumnDefinitions="*,*,*">
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Id" TextColor="White"/>
+                        <Entry x:Name="NameId"  Placeholder="Id" PlaceholderColor="Yellow" TextColor="Violet"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Name" TextColor="White"/>
+                        <Entry x:Name="NameEntry"  Placeholder="Nombre"  PlaceholderColor="Yellow" TextColor="Violet"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="2">
+                        <Label Text="Platform ID" TextColor="White" />
+                        <Entry x:Name="PlatformIdEntry"  Placeholder="Enter platform ID" Keyboard="Numeric"  PlaceholderColor="Yellow" TextColor="Violet"/>
+                    </StackLayout>
+                </Grid>
+                <Label Text="Description" TextColor="White" />
+                <Entry x:Name="DescriptionEntry" Placeholder="Descripcion"  PlaceholderColor="Yellow" TextColor="Violet" />
+                <Grid ColumnDefinitions="*,*,*,*,*">
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Width" TextColor="White"/>
+                        <Entry x:Name="WidthEntry"  Placeholder="Enter width" Keyboard="Numeric"  PlaceholderColor="Yellow" TextColor="Violet" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Height" TextColor="White"/>
+                        <Entry x:Name="HeightEntry"  Placeholder="Enter height" Keyboard="Numeric"  PlaceholderColor="Yellow" TextColor="Violet" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2">
+                        <Label Text="Large" TextColor="White"/>
+                        <Entry x:Name="LargeEntry"  Placeholder="Enter large" Keyboard="Numeric"  PlaceholderColor="Yellow" TextColor="Violet" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="3">
+                        <Label Text="Weight" TextColor="White"/>
+                        <Entry x:Name="WeightEntry"  Placeholder="Enter weight"  PlaceholderColor="Yellow" TextColor="Violet" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="4">
+                        <Label Text="Is Fragile" TextColor="White" />
+                        <Entry x:Name="IsFragileEntry"  Placeholder="Enter 1 for fragile, 0 otherwise" Keyboard="Numeric"  PlaceholderColor="Yellow" TextColor="Violet"/>
+                    </StackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Latitude"  TextColor="White"/>
+                        <Entry x:Name="LatitudeEntry"  Placeholder="Enter latitude"  PlaceholderColor="Yellow" TextColor="Violet" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Longitude" TextColor="White" />
+                        <Entry x:Name="LongitudeEntry"  Placeholder="Enter longitude"  PlaceholderColor="Yellow" TextColor="Violet"/>
+                    </StackLayout>
+                </Grid>
+                <Button Text="Obtener Datos" Clicked="OnGetPackageDataClicked" Command="{Binding loadingcommand}" BackgroundColor="#00E4FF"/>
+                <Button Text="Registrar Package" Clicked="OnRegisterPackageClicked" Command="{Binding loadingcommand}" Background="#51FF00" />
+                <Button Text="Actualizar Package" Clicked="OnUpdatePackageClicked" Command="{Binding loadingcommand}" BackgroundColor="#FFF000"/>
+                <Button Text="Eliminar Package" Clicked="OnDeletePackageClicked" Command="{Binding loadingcommand}" BackgroundColor="#FF3A00" />
+            </StackLayout>
+        </sharpnado:MaterialFrame>
+        <!-- Overlay de carga -->
+        <Grid Grid.RowSpan="2" x:Name="LoadingOverlay"
+  BackgroundColor="Black"
+  Opacity="0.5"
+  IsVisible="{Binding IsBusy}">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+        </Grid>
+    </Grid>
+
+</ContentPage>
